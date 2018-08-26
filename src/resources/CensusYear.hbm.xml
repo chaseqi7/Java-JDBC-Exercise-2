@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+    <class name="prog3060.Zqi.CensusYear" table="CENSUSYEAR">
+        <id name="censusYearID" type="int">
+            <column name="CENSUSYEARID" />
+            <generator class="assigned" />
+        </id>
+        <property name="censusYear" type="int">
+            <column name="CENSUSYEAR" />
+        </property>
+        <set name="age" inverse="true">
+            <key column="censusYear"/>
+            <one-to-many class="prog3060.Zqi.Age"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

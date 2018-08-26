@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="prog3060.Zqi.AgeGroup" table="AGEGROUP">
+        <id name="ageGroupID" type="int">
+            <column name="AGEGROUPID" />
+            <generator class="assigned" />
+        </id>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <set name="age" inverse="true">
+            <key column="ageGroup"/>
+            <one-to-many class="prog3060.Zqi.Age"/>
+        </set>
+    </class>
+</hibernate-mapping>
